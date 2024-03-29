@@ -1,5 +1,7 @@
 # Organo
 
+Um organograma é um método de estruturação de equipes. O objetivo dessa ferramenta é organizar os espaços nos quais cada colaborador estará inserido, informando o nome, cargo e imagem do mesmo.
+
 # Sobre o projeto
 
 https://organo-omega-sooty.vercel.app/
