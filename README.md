@@ -12,7 +12,7 @@ Começo da minha jornada em React, onde aprendi criar projetos, componentes, pro
 ![Web 1](https://github.com/pedroinaciop/organo/blob/master/public/images/page-web.png)
 
 ## Tecnologias utilizadas
-[![Minhas Habilidades](https://skillicons.dev/icons?i=html,css,js,react)](https://skillicons.dev)
+[![Minhas Habilidades](https://skillicons.dev/icons?i=react)](https://skillicons.dev)
 
 ## 👨‍💻 Autor
 
