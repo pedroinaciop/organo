@@ -2,7 +2,7 @@
 
 # Sobre o projeto
 
-https://pedroinaciop.github.io/projeto-site_zndental/ 
+https://organo-omega-sooty.vercel.app/
 
 Começo da minha jornada em React, onde aprendi criar projetos, componentes, props, map e sua função importantíssima no mundo React e diversas outras funcionalidades dessa vasta biblioteca.
 
