@@ -4,15 +4,21 @@
 }
 
 .time h3 {
+  font-family: 'Prata', sans-serif;
   font-size: 32px;
-  border-bottom: 4px solid;
-  display: inline-block;
-  padding-bottom: 8px;
+  margin: 32px 0px 0px 0px;
+}
+
+.time hr {
+  border: none;
+  border-top: 4px solid; 
+  width: 32px;
+  margin-bottom: 32px;
 }
 
 .time .colaboradores {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 32px;
-    flex-wrap: wrap; 
+  display: flex;
+  justify-content: space-around;
+  margin-top: 32px;
+  flex-wrap: wrap; 
 }

@@ -1,9 +1,9 @@
+import "./App.css";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
-import { useState } from "react";
-import "./App.css";
 import Rodape from "./componentes/Rodape";
+import { useState } from "react";
 
 function App() {
   const times = [
@@ -47,7 +47,7 @@ function App() {
   const [colaboradores, setColaborador] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
+    // debugger
     setColaborador([...colaboradores, colaborador]);
   };
 
@@ -55,14 +55,12 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times.map((time) => time.nome)} aoColaboradorCadastrado={(colaborador) => aoNovoColaboradorAdicionado(colaborador)}/>
-
       {times.map((time) => <Time
         key={time.nome}
         nome={time.nome}
         corPrimaria={time.corPrimaria}
         corSecundaria={time.corSecundaria}
         colaboradores={colaboradores.filter((colaborador) => colaborador.time === time.nome)}/>)}
-
       <Rodape/>  
     </div>
   );
