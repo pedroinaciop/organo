@@ -1,8 +1,10 @@
+import { IoCloseCircleOutline } from "react-icons/io5";
 import "./Colaborador.css";
 
 const Colaborador = (props) => {
   return (
     <div className="colaborador">
+      <IoCloseCircleOutline style={{ color: props.corDoDeletar }} size={25} className="deletar" onClick={props.aoDeletar}/>
       <div className="cabecalho" style={{ backgroundColor: props.corDeFundo }}>
         <img src={props.imagem} alt={props.nome} />
       </div>

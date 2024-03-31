@@ -11,15 +11,16 @@ const Time = (props) => {
         <h3 style={coresDaBorda}>{props.nome}</h3>
         <hr style={coresDaBorda} />
         <div className="colaboradores">
-          {props.colaboradores.map((colaborador) => {
-            console.log("Renderizando colaborador");
+          {props.colaboradores.map((colaborador, indice) => {
             return (
               <Colaborador
                 corDeFundo={props.corPrimaria}
-                key={colaborador.nome}
+                corDoDeletar={props.corSecundaria}
+                key={indice}
                 nome={colaborador.nome}
                 cargo={colaborador.cargo}
                 imagem={colaborador.imagem}
+                aoDeletar={props.aoDeletar}
               />
             );
           })}
