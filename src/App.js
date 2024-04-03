@@ -1,10 +1,9 @@
-import "./App.css";
+import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
-import Time from "./componentes/Time";
 import Rodape from "./componentes/Rodape";
-import { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import Time from "./componentes/Time";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [times, setTimes] = useState([
@@ -45,42 +44,64 @@ function App() {
     },
   ]);
 
-  const [colaboradores, setColaborador] = useState([]);
+  const inicial = [
+    {
+      id: uuidv4(),
+      nome: "Pedro Inácio P.",
+      cargo: "Desenvolvedor",
+      imagem: "https://github.com/pedroinaciop.png",
+      time: times[0].nome,
+    },
+  ];
+
+  const [colaboradores, setColaborador] = useState(inicial);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     setColaborador([...colaboradores, colaborador]);
   };
 
-  function deletarColaborador() {
-    console.log("deletando colaborador");
+  function deletarColaborador(id) {
+    setColaborador(
+      colaboradores.filter((colaborador) => colaborador.id !== id)
+    );
   }
 
-  function mudarCorDoTime(cor, nome) {
-    setTimes(times.map(time => {
-      if(time.nome === nome) {
-        time.cor = cor;
-      }
-      return time;
-    }))
+  function mudarCorDoTime(cor, id) {
+    setTimes(
+      times.map((time) => {
+        if (time.id === id) {
+          time.cor = cor;
+        }
+        return time;
+      })
+    );
+  }
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
   }
 
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
         }
       />
+      <h1>Minha organização</h1>
       {times.map((time, indice) => (
         <Time
-          key={(indice)}
-          nome={time.nome}
-          cor={time.cor}
-          colaboradores={colaboradores.filter((colaborador) => colaborador.time === time.nome)}
-          aoDeletar={deletarColaborador}
           mudarCor={mudarCorDoTime}
+          key={indice}
+          time={time}
+          nome={time.nome}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.time === time.nome
+          )}
+          aoDeletar={deletarColaborador}
         />
       ))}
       <Rodape />
