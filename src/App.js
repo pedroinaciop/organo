@@ -10,37 +10,37 @@ function App() {
     {
       id: uuidv4(),
       nome: "Programação",
-      cor: "#D9F7E9",
+      cor: "#57C278",
     },
     {
       id: uuidv4(),
       nome: "Front-End",
-      cor: "#E8F8FF",
+      cor: "#82CFFA",
     },
     {
       id: uuidv4(),
       nome: "Data-Science",
-      cor: "#F0F8E2",
+      cor: "#A6D157",
     },
     {
       id: uuidv4(),
       nome: "Devops",
-      cor: "#FDE7E8",
+      cor: "#E06B69",
     },
     {
       id: uuidv4(),
       nome: "UX e Design",
-      cor: "#FAE9F5",
+      cor: "#DB6EBF",
     },
     {
       id: uuidv4(),
       nome: "Mobile",
-      cor: "#FFF5D9",
+      cor: "#FFBA05",
     },
     {
       id: uuidv4(),
       nome: "Inovação e Gestão",
-      cor: "#FFEEDF",
+      cor: "#FF8A29",
     },
   ]);
 
@@ -92,23 +92,12 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario
-        cadastrarTime={cadastrarTime}
-        times={times.map((time) => time.nome)}
-        aoCadastrar={(colaborador) => aoNovoColaboradorAdicionado(colaborador)}
-      />
+      <Formulario cadastrarTime={cadastrarTime} times={times.map((time) => time.nome)} aoCadastrar={(colaborador) => aoNovoColaboradorAdicionado(colaborador)} />
       {times.map((time, indice) => (
-        <Time
-          aoFavoritar={resolverFavorito}
-          mudarCor={mudarCorDoTime}
-          key={indice}
-          time={time}
-          nome={time.nome}
+        <Time aoFavoritar={resolverFavorito} mudarCor={mudarCorDoTime} key={indice} time={time} nome={time.nome} aoDeletar={deletarColaborador}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time === time.nome
-          )}
-          aoDeletar={deletarColaborador}
-        />
+          )}/>
       ))}
       <Rodape />
     </div>
