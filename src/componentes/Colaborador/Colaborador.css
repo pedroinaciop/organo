@@ -44,5 +44,9 @@
 }
 
 .deletar:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.favoritar {
+  margin-top: 20px;
 }

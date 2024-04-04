@@ -47,6 +47,7 @@ function App() {
   const inicial = [
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Pedro Inácio P.",
       cargo: "Desenvolvedor",
       imagem: "https://github.com/pedroinaciop.png",
@@ -81,19 +82,24 @@ function App() {
     setTimes([...times, { ...novoTime, id: uuidv4() }]);
   }
 
+  function resolverFavorito(id) {
+    setColaborador(colaboradores.map(colaborador => {
+      if (colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+        return colaborador;
+      }))
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
         cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
-        aoColaboradorCadastrado={(colaborador) =>
-          aoNovoColaboradorAdicionado(colaborador)
-        }
+        aoCadastrar={(colaborador) => aoNovoColaboradorAdicionado(colaborador)}
       />
-      <h1>Minha organização</h1>
       {times.map((time, indice) => (
         <Time
+          aoFavoritar={resolverFavorito}
           mudarCor={mudarCorDoTime}
           key={indice}
           time={time}
